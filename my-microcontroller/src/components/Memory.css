@@ -1,7 +1,7 @@
 /* Main container */
 .memory-viewer {
   padding: 20px;
-  padding-top: 340px; 
+  padding-top: 40px; 
   background-color: #1a1d21;
   min-height: 100vh;
 }

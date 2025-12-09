@@ -8,6 +8,7 @@ import Tabs from 'react-bootstrap/Tabs';
 
 //Components 
 import Memory from './components/Memory.jsx'; 
+import Assembly from './components/Assembly.jsx'; 
 
 function App() {
   const [activeTab, setActiveTab] = useState('page1');
@@ -33,16 +34,9 @@ function App() {
         >
           <Tab
             eventKey="page1"
-            title={
-              <span
-                style={{ color: activeTab === 'page1' ? '#d0b204ff' : '#aaa' }}
-              >
-                Assembly Code
-              </span>
-            }
-          >
-            <div className="content-box">
-              <h2 className="content-title">Assembly Code</h2>
+            title={<span style={{ color: activeTab === 'page1' ? '#d0b204ff' : '#aaa' }}>Assembly Code</span>}>
+            <div classsName="content-box scroolable">
+              <Assembly />
             </div>
           </Tab>
 

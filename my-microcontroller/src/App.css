@@ -54,11 +54,6 @@
   text-align: center;
 }
 
-.scrollable {
-  overflow-y: auto;
-  max-height: 400px; /* or however tall you want */
-  padding-right: 1rem; /* prevents scrollbar from covering content */
-}
 
 
 
