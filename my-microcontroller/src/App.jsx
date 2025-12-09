@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+
+//Components 
+import Memory from './components/Memory.jsx'; 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeTab, setActiveTab] = useState('page1');
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-background">
+      
+      {/* Header */}
+      <Navbar className="navbar-custom" variant="dark">
+        <Container>
+          <Navbar.Brand className="navbar-title">
+            ⚡ Microcontroller Simulator
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+
+      {/* Main Content */}
+      <Container className="main-container">
+        <Tabs
+          activeKey={activeTab}
+          onSelect={(k) => setActiveTab(k)}
+          className="tabs-custom mb-4"
+        >
+          <Tab
+            eventKey="page1"
+            title={
+              <span
+                style={{ color: activeTab === 'page1' ? '#d0b204ff' : '#aaa' }}
+              >
+                Assembly Code
+              </span>
+            }
+          >
+            <div className="content-box">
+              <h2 className="content-title">Assembly Code</h2>
+            </div>
+          </Tab>
+
+          <Tab eventKey="page2" title={<span style={{ color: activeTab === 'page2' ? '#ffd700' : '#aaa' }}>Page 2</span>}>
+            <div className="content-box scrollable">
+              <Memory />
+            </div>
+          </Tab>
+
+        </Tabs>
+      </Container>
+
+      {/* Footer */}
+      <footer className="footer">
+        <Container>
+          <p className="footer-text">
+            Made by Jack Harty —{" "}
+            <a href="mailto:sportingjdh@icloud.com" className="footer-link">
+              sportingjdh@icloud.com
+            </a>
+          </p>
+        </Container>
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
